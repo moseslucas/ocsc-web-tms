@@ -5,9 +5,11 @@
  *LIBRARY
  */
 
-@import "bootstrap";
-@import "font-awesome";
-@import "simple-line-icons";
+@import"global/plugins/font-awesome/css/font-awesome.min.css";
+@import"global/plugins/simple-line-icons/simple-line-icons.min.css";
+@import"global/plugins/bootstrap/css/bootstrap.min.css";
+@import"global/plugins/bootstrap-switch/css/bootstrap-switch.min.css";
+
 @import "global/css/components-rounded.min.css";
 @import "global/css/plugins.min.css";
 @import "layout/css/layout.min.css";

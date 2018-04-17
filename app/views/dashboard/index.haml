@@ -1,0 +1,129 @@
+.page-wrapper
+  .page-wrapper-row
+    .page-wrapper-top
+      / BEGIN HEADER
+      .page-header
+        / BEGIN HEADER TOP
+        .page-header-top
+          .container
+            / BEGIN LOGO
+            .page-logo
+              =image_tag "logo-default-ocsc.png"
+            / END LOGO
+            / BEGIN RESPONSIVE MENU TOGGLER
+            %a.menu-toggler{:href => "javascript:;"}
+            / END RESPONSIVE MENU TOGGLER
+        / END HEADER TOP
+        / BEGIN HEADER MENU
+        .page-header-menu
+          .container
+            / BEGIN MEGA MENU
+            / DOC: Apply "hor-menu-light" class after the "hor-menu" class below to have a horizontal menu with white background
+            / DOC: Remove data-hover="dropdown" and data-close-others="true" attributes below to disable the dropdown opening on mouse hover
+            .hor-menu
+              %ul.nav.navbar-nav
+                %li.menu-dropdown.classic-menu-dropdown.active{"aria-haspopup" => "true"}
+                  %a{:href => "javascript:;"}
+                    Layouts
+                    %span.arrow
+                  %ul.dropdown-menu.pull-left
+                    %li{"aria-haspopup" => "true"}
+                      %a.nav-link{:href => "layout_mega_menu_light.html"} Light Mega Menu
+                    %li{"aria-haspopup" => "true"}
+                      %a.nav-link{:href => "layout_top_bar_light.html"} Light Top Bar Dropdowns
+                    %li{"aria-haspopup" => "true"}
+                      %a.nav-link{:href => "layout_fluid_page.html"} Fluid Page
+                    %li{"aria-haspopup" => "true"}
+                      %a.nav-link{:href => "layout_top_bar_fixed.html"} Fixed Top Bar
+                    %li{"aria-haspopup" => "true"}
+                      %a.nav-link{:href => "layout_mega_menu_fixed.html"} Fixed Mega Menu
+                    %li{"aria-haspopup" => "true"}
+                      %a.nav-link{:href => "layout_disabled_menu.html"} Disabled Menu Links
+                    %li.active{"aria-haspopup" => "true"}
+                      %a.nav-link.active{:href => "layout_blank_page.html"} Blank Page
+            / END MEGA MENU
+        / END HEADER MENU
+      / END HEADER
+  .page-wrapper-row.full-height
+    .page-wrapper-middle
+      / BEGIN CONTAINER
+      .page-container
+        / BEGIN CONTENT
+        .page-content-wrapper
+          / BEGIN CONTENT BODY
+          / BEGIN PAGE HEAD
+          .page-head
+            .container
+              / BEGIN PAGE TITLE
+              .page-title
+                %h1 Blank Page
+              / END PAGE TITLE
+          / END PAGE HEAD
+          / BEGIN PAGE CONTENT BODY
+          .page-content
+            .container
+              / BEGIN PAGE BREADCRUMBS
+              %ul.page-breadcrumb.breadcrumb
+                %li
+                  %a{:href => "index.html"} Home
+                  %i.fa.fa-circle
+                %li
+                  %span Layouts
+              / END PAGE BREADCRUMBS
+              / BEGIN PAGE CONTENT INNER
+              .page-content-inner
+                .note.note-info
+                  %p A black page template with a minimal dependency assets to use as a base for any custom page you create
+              / END PAGE CONTENT INNER
+          / END PAGE CONTENT BODY
+          / END CONTENT BODY
+        / END CONTENT
+        / BEGIN QUICK SIDEBAR
+        %a.page-quick-sidebar-toggler{:href => "javascript:;"}
+          %i.icon-login
+        .page-quick-sidebar-wrapper{"data-close-on-body-click" => "false"}
+          .page-quick-sidebar
+            %ul.nav.nav-tabs
+              %li.active
+                %a{"data-target" => "#quick_sidebar_tab_1", "data-toggle" => "tab", :href => "javascript:;"}
+                  Users
+                  %span.badge.badge-danger 2
+              %li
+                %a{"data-target" => "#quick_sidebar_tab_2", "data-toggle" => "tab", :href => "javascript:;"}
+                  Alerts
+                  %span.badge.badge-success 7
+              %li.dropdown
+                %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "javascript:;"}
+                  More
+                  %i.fa.fa-angle-down
+                %ul.dropdown-menu.pull-right
+                  %li
+                    %a{"data-target" => "#quick_sidebar_tab_3", "data-toggle" => "tab", :href => "javascript:;"}
+                      %i.icon-bell
+                      Alerts
+                  %li
+                    %a{"data-target" => "#quick_sidebar_tab_3", "data-toggle" => "tab", :href => "javascript:;"}
+                      %i.icon-info
+                      Notifications
+                  %li
+                    %a{"data-target" => "#quick_sidebar_tab_3", "data-toggle" => "tab", :href => "javascript:;"}
+                      %i.icon-speech
+                      Activities
+                  %li.divider
+                  %li
+                    %a{"data-target" => "#quick_sidebar_tab_3", "data-toggle" => "tab", :href => "javascript:;"}
+                      %i.icon-settings
+                      Settings
+  .page-wrapper-row
+    .page-wrapper-bottom
+      .page-footer
+        .container
+          2016 © Metronic Theme By
+          %a{:href => "http://keenthemes.com", :target => "_blank"} Keenthemes
+           | 
+          %a{:href => "http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes", :target => "_blank", :title => "Purchase Metronic just for 27$ and get lifetime updates for free"} Purchase Metronic!
+      .scroll-to-top
+        %i.icon-arrow-up
+      / END INNER FOOTER
+      / END FOOTER
+

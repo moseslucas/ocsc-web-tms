@@ -17,9 +17,6 @@ gem 'react_on_rails', '10.0.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'hamlit-rails'
-gem 'bootstrap', '~> 4.0.0.beta2.1'
-gem "font-awesome-rails"
-gem 'simple-line-icons-rails'
 
 group :development, :test do
   gem 'faker'
