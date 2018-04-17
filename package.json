@@ -1,0 +1,20 @@
+{
+  "name": "zenki",
+  "private": true,
+  "dependencies": {
+    "@rails/webpacker": "^3.2.0",
+    "babel-preset-react": "^6.24.1",
+    "coffeescript": "1.12.7",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-google-maps": "^9.4.3",
+    "react-on-rails": "^10.0.2",
+    "react-redux": "^5.0.6",
+    "recompose": "^0.26.0",
+    "redux": "^3.7.2"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^2.9.7"
+  }
+}
