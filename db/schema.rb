@@ -18,8 +18,9 @@ ActiveRecord::Schema.define(version: 20180420113716) do
   create_table "companies", force: :cascade do |t|
     t.string "name", null: false
     t.text "description"
-    t.string "branch", default: "master"
+    t.string "branch", default: ["master"], array: true
     t.string "id_from_branch", default: [], array: true
+    t.integer "status", limit: 2, default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
