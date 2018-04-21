@@ -2,11 +2,11 @@ class Api::V1::SyncsController < ApplicationController
   before_action :set_params, only: [:create]
 
   def index
-    render json: {}
-  end
-
-  def get_model
-    render json: params[:model_name].constantize.all
+    if all_models.include? params[:model_name]
+      render json: params[:model_name].constantize.all
+    else
+      render json: {error: "Model does not exist"}
+    end
   end
 
   def create
@@ -34,5 +34,10 @@ class Api::V1::SyncsController < ApplicationController
 
   def new_record?(record)
     record[:created_at] === record[:updated_at]
+  end
+
+  def all_models
+    files = Dir[Rails.root + 'app/models/*.rb']
+    files.map{ |m| File.basename(m, '.rb').camelize }
   end
 end

@@ -9,11 +9,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :syncs do
-        collection do
-          post :get_model
-        end
-      end
+      resources :syncs
     end
   end
 end
