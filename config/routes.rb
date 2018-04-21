@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :discounts
   root 'dashboard#index'
 
   resources :companies
@@ -8,7 +9,11 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :syncs
+      resources :syncs do
+        collection do
+          post :get_model
+        end
+      end
     end
   end
 end

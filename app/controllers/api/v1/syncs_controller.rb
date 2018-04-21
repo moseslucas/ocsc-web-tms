@@ -2,7 +2,11 @@ class Api::V1::SyncsController < ApplicationController
   before_action :set_params, only: [:create]
 
   def index
-    render json: Company.all
+    render json: {}
+  end
+
+  def get_model
+    render json: params[:model_name].constantize.all
   end
 
   def create
