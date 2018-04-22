@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/1
-  channel_prefix: zenki_production
+  url: redis://redistogo:2dcf130ac388d980cb441d83b87cbb05@albacore.redistogo.com:10178/
+  channel_prefix: ocsc-web-tms

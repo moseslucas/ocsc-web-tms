@@ -17,6 +17,10 @@ gem 'react_on_rails', '10.0.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'hamlit-rails'
+gem 'rack-cors'
+gem "smart_listing"
+gem 'jquery-rails'
+gem 'redis', '~> 3.0'
 
 group :development, :test do
   gem 'faker'
