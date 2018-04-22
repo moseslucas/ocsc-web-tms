@@ -1,8 +1,8 @@
 class DiscountsController < ApplicationController
   include SmartListing::Helper::ControllerExtensions
   helper SmartListing::Helper
-  before_action :set_params, only: [:create]
-  before_action :find_record, only: [:update]
+  before_action :set_params, only: [:create, :update]
+  before_action :find_record, only: [:edit, :update, :destroy]
 
   def index
     discount_scope = Discount.active
@@ -11,31 +11,37 @@ class DiscountsController < ApplicationController
       :discounts,
       discount_scope,
       partial: "discounts/list",
-      default_sort: {name: "asc"}
+      default_sort: {updated_at: "desc"}
     )
   end
 
   def create
     @discount = Discount.new @params
-    respond_to do |format|
-      if @discount.save 
-        format.html { redirect_to discounts_path, notice: "Discount was successfully created" }
-      else
-        format.html { render action: "new" }
-      end
-    end
+		if @discount.save 
+			redirect_to discounts_path, notice: "Discount was successfully created"
+		else
+			render :new
+		end
   end
 
   def new
     @discount = Discount.new
   end
 
-  def destroy
-    @discount = Discount.find params[:id]
-    @discount.update_attribute :status, 0
+  def edit
   end
 
   def update
+    if @discount.update @params
+      redirect_to discounts_path, notice: "Discount was successfully updated"
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @discount.update_attribute :status, 0
+    redirect_to discounts_path, notice: "Discount was successfully deleted"
   end
 
   private
@@ -52,4 +58,5 @@ class DiscountsController < ApplicationController
   def find_record
     @discount = Discount.find params[:id]
   end
+
 end
