@@ -17,7 +17,7 @@ class DiscountsController < ApplicationController
     @discount = Discount.new @params
     respond_to do |format|
       if @discount.save 
-        format.html { redirect_to action: "index", notice: "Discount was successfully created" }
+        format.html { redirect_to discounts_path, notice: "Discount was successfully created" }
       else
         format.html { render action: "new" }
       end

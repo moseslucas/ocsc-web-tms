@@ -1,5 +1,9 @@
 - provide :title, "Discounts"
 
+- unless notice.nil?
+  .alert.alert-success
+    #notice= notice
+
 .page-content-inner
   .row
     .col-xs-12
