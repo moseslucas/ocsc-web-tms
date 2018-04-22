@@ -3,7 +3,7 @@ class Api::V1::SyncsController < ApplicationController
 
   def index
     if all_models.include? params[:model_name]
-      render json: params[:model_name].constantize.active
+      render json: params[:model_name].constantize.all
     else
       render json: {error: "Model does not exist"}
     end
