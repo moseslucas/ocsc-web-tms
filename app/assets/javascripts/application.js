@@ -12,11 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require rails-ujs
-//= require global/plugins/jquery.min
+// require rails-ujs
+// require global/plugins/jquery.min
 //= require global/plugins/bootstrap/js/bootstrap.min
 //= require global/plugins/bootstrap-switch/js/bootstrap-switch.min
-//= require global/plugins/jquery.min
 // require layout/layout.min
 // require layout/quick-nav.min
 // require layout/quick-sidebar.min
