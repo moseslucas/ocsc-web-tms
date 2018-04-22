@@ -10,6 +10,8 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
+//= require jquery_ujs
 //= require rails-ujs
 //= require global/plugins/jquery.min
 //= require global/plugins/bootstrap/js/bootstrap.min
@@ -19,3 +21,4 @@
 // require layout/quick-nav.min
 // require layout/quick-sidebar.min
 // require layout/demo.min
+//= require smart_listing

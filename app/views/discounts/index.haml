@@ -5,5 +5,6 @@
     .col-xs-12
       .portlet.light.portlet-fit
         .portlet-title
-          %button.btn.green CREATE NEW
+          = link_to "CREATE NEW", new_discount_path, class: "btn green"
         .portlet-body
+          = smart_listing_render :discounts

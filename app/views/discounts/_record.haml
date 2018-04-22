@@ -1,0 +1,5 @@
+%td= o.name
+%td= o.description
+%td #{number_with_precision o.amount, precision: 0} %
+%td= o.discount_type
+%td.actions= smart_listing_item_actions [{name: :edit},{name: :destroy}]

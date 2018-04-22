@@ -19,6 +19,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'hamlit-rails'
 gem 'rack-cors'
 gem "smart_listing"
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'faker'
