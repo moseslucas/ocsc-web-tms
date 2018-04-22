@@ -155,6 +155,7 @@ GEM
       execjs (~> 2.5)
       rails (>= 3.2)
       rainbow (~> 2.2)
+    redis (3.0.0)
     ruby_dep (1.5.0)
     sass (3.5.4)
       sass-listen (~> 4.0.0)
@@ -224,6 +225,7 @@ DEPENDENCIES
   rack-cors
   rails (~> 5.1.4)
   react_on_rails (= 10.0.2)
+  redis (~> 3.0)
   sass-rails (~> 5.0)
   smart_listing
   spring

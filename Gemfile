@@ -20,6 +20,7 @@ gem 'hamlit-rails'
 gem 'rack-cors'
 gem "smart_listing"
 gem 'jquery-rails'
+gem 'redis', '~> 3.0'
 
 group :development, :test do
   gem 'faker'
