@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require cable
 // require rails-ujs
 // require global/plugins/jquery.min
 //= require global/plugins/bootstrap/js/bootstrap.min
