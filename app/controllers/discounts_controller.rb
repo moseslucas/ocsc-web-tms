@@ -4,18 +4,13 @@ class DiscountsController < ApplicationController
   before_action :find_record, only: [:delete, :update]
 
   def index
-    render json: @discounts
   end
 
   def create
-    discount = Discount.create @params
+     Discount.create @params
   end
 
   def destroy
-    @discount.status = 0
-    if @discount.save
-      return json: {status: "OK", record: @discount}
-    end
   end
 
   def update

@@ -18,6 +18,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'hamlit-rails'
 gem 'rack-cors'
+gem "smart_listing"
 
 group :development, :test do
   gem 'faker'
