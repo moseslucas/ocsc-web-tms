@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180427160023) do
+ActiveRecord::Schema.define(version: 20180427170426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 20180427160023) do
     t.string "address"
     t.string "contact", limit: 30
     t.string "email"
-    t.decimal  "credit_limit", precision: 9, scale: 2, default: "0.0"
-    t.string   "discount_id"
+    t.decimal "credit_limit", precision: 9, scale: 2, default: "0.0"
+    t.string "discount_id"
     t.integer "status", limit: 2, default: 1, null: false
     t.string "branch", default: ["master"], array: true
     t.string "id_from_branch", default: [], array: true
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20180427160023) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "discounts", id: :string, limit: 100,  force: :cascade do |t|
+  create_table "discounts", id: :string, limit: 100, force: :cascade do |t|
     t.string "name", null: false
     t.text "description"
     t.string "discount_type"
@@ -104,6 +104,17 @@ ActiveRecord::Schema.define(version: 20180427160023) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["measurement"], name: "index_uoms_on_measurement", unique: true
+  end
+
+  create_table "vehicles", id: :string, limit: 100, force: :cascade do |t|
+    t.string "ref_id", null: false
+    t.string "description"
+    t.string "vehicle_type"
+    t.integer "status", limit: 2, default: 1
+    t.string "branch", default: ["master"], array: true
+    t.string "id_from_branch", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
