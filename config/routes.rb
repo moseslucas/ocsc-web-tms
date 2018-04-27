@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :calculations
   resources :kinds
   resources :clients
   mount ActionCable.server, at: '/cable'
