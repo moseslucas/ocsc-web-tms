@@ -14,5 +14,6 @@ class Discount < ApplicationRecord
     )
   }
 
+  has_many :documents
   has_many :clients
 end

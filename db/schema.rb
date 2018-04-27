@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180427171326) do
+ActiveRecord::Schema.define(version: 20180427171736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,29 @@ ActiveRecord::Schema.define(version: 20180427171326) do
     t.integer "status", limit: 2, default: 1
     t.string "branch", default: ["master"], array: true
     t.string "id_from_branch", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "documents", id: :string, limit: 100, force: :cascade do |t|
+    t.string "ref_id", limit: 30
+    t.string "client_id", limit: 30
+    t.string "kind_id", limit: 30
+    t.string "discount_id", limit: 30
+    t.string "calculation_id", limit: 30
+    t.string "source_id", limit: 30
+    t.string "destination_id", limit: 30, null: false
+    t.date "trans_date"
+    t.string "description"
+    t.string "doc_type", default: "rec", null: false
+    t.integer "status1", limit: 2, default: 1
+    t.integer "status2", limit: 2, default: 1
+    t.string "origin_id", limit: 30
+    t.decimal "total_amount", precision: 9, scale: 2
+    t.string "shipper"
+    t.string "released_to"
+    t.date "released_date"
+    t.text "custom_tag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
