@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180427154100) do
+ActiveRecord::Schema.define(version: 20180427154901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,17 @@ ActiveRecord::Schema.define(version: 20180427154100) do
     t.decimal "puc", precision: 9, scale: 2, null: false
     t.string "branch", default: ["master"], array: true
     t.string "id_from_branch", default: [], array: true
+  end
+
+  create_table "uoms", force: :cascade do |t|
+    t.string "measurement", null: false
+    t.string "description"
+    t.integer "status", limit: 2, default: 1
+    t.string "branch", default: ["master"], array: true
+    t.string "id_from_branch", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["measurement"], name: "index_uoms_on_measurement", unique: true
   end
 
 end
