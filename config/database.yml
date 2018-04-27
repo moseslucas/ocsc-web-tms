@@ -7,11 +7,11 @@ default: &default
 
 development:
   <<: *default
-  database: zenki_development
+  database: ocsc_web_tms_development
 test:
   <<: *default
-  database: zenki_test
+  database: ocsc_web_tms_test
 
 production:
   <<: *default
-  database: zenki_production
+  database: ocsc_web_tms_production

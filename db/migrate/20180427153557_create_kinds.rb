@@ -1,6 +1,7 @@
 class CreateKinds < ActiveRecord::Migration[5.1]
   def change
-    create_table :kinds do |t|
+    create_table :kinds, {id: false} do |t|
+      t.column :id, "varchar(100) PRIMARY KEY"
       t.string   :name, null: false
       t.integer  :status, limit: 1, default: 1
       t.datetime :created_at, null: false

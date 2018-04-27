@@ -1,6 +1,7 @@
 class CreateCalculations < ActiveRecord::Migration[5.1]
   def change
-    create_table :calculations do |t|
+    create_table :calculations, {id: false} do |t|
+      t.column :id, "varchar(100) PRIMARY KEY"
       t.string   :name, null: false
       t.string   :description
       t.string   :uom_id, limit: 30

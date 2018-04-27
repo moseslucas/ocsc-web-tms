@@ -13,4 +13,6 @@ class Discount < ApplicationRecord
       filter.strip.to_i
     )
   }
+
+  has_many :clients
 end

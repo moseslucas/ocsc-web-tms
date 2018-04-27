@@ -1,6 +1,7 @@
 class CreateUoms < ActiveRecord::Migration[5.1]
   def change
-    create_table :uoms do |t|
+    create_table :uoms, {id: false} do |t|
+      t.column :id, "varchar(100) PRIMARY KEY"
       t.string   :measurement, null: false
       t.string   :description
       t.integer  :status, limit: 1, default: 1

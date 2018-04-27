@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180427154901) do
+ActiveRecord::Schema.define(version: 20180427160023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "calculations", force: :cascade do |t|
+  create_table "calculations", id: :string, limit: 100, force: :cascade do |t|
     t.string "name", null: false
     t.string "description"
     t.string "uom_id", limit: 30
@@ -34,12 +34,14 @@ ActiveRecord::Schema.define(version: 20180427154901) do
     t.index ["name"], name: "index_calculations", unique: true
   end
 
-  create_table "clients", force: :cascade do |t|
+  create_table "clients", id: :string, limit: 100, force: :cascade do |t|
     t.string "name", null: false
     t.string "description"
     t.string "address"
     t.string "contact", limit: 30
     t.string "email"
+    t.decimal  "credit_limit", precision: 9, scale: 2, default: "0.0"
+    t.string   "discount_id"
     t.integer "status", limit: 2, default: 1, null: false
     t.string "branch", default: ["master"], array: true
     t.string "id_from_branch", default: [], array: true
@@ -47,17 +49,17 @@ ActiveRecord::Schema.define(version: 20180427154901) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "companies", force: :cascade do |t|
+  create_table "companies", id: :string, limit: 100, force: :cascade do |t|
     t.string "name", null: false
     t.text "description"
+    t.integer "status", limit: 2, default: 1
     t.string "branch", default: ["master"], array: true
     t.string "id_from_branch", default: [], array: true
-    t.integer "status", limit: 2, default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "discounts", force: :cascade do |t|
+  create_table "discounts", id: :string, limit: 100,  force: :cascade do |t|
     t.string "name", null: false
     t.text "description"
     t.string "discount_type"
@@ -69,7 +71,7 @@ ActiveRecord::Schema.define(version: 20180427154901) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "kinds", force: :cascade do |t|
+  create_table "kinds", id: :string, limit: 100, force: :cascade do |t|
     t.string "name", null: false
     t.integer "status", limit: 2, default: 1
     t.datetime "created_at", null: false
@@ -80,7 +82,20 @@ ActiveRecord::Schema.define(version: 20180427154901) do
     t.string "id_from_branch", default: [], array: true
   end
 
-  create_table "uoms", force: :cascade do |t|
+  create_table "locations", id: :string, limit: 100, force: :cascade do |t|
+    t.string "company_id"
+    t.string "name", limit: 100
+    t.string "description"
+    t.string "location_type", limit: 50
+    t.integer "status", limit: 2, default: 1
+    t.string "branch", default: ["master"], array: true
+    t.string "id_from_branch", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_locations_on_name", unique: true
+  end
+
+  create_table "uoms", id: :string, limit: 100, force: :cascade do |t|
     t.string "measurement", null: false
     t.string "description"
     t.integer "status", limit: 2, default: 1

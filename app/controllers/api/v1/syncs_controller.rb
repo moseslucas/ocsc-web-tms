@@ -15,9 +15,9 @@ class Api::V1::SyncsController < ApplicationController
         if new_record?(record)
           model_param = {}
           record.keys.each do |key|
-            model_param[key] = record["#{key}"] unless key === "id"
+            model_param[key] = record["#{key}"]
           end
-          model_param[:branch] = [@params[:branch]]
+          model_param[:branch] = [@params[:branch]] unless !@params[:branch]
           model_param[:id_from_branch] = [record[:id]]
           s[:model_name].constantize.create model_param
         else
