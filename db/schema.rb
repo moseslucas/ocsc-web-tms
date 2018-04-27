@@ -90,6 +90,8 @@ ActiveRecord::Schema.define(version: 20180427171736) do
     t.string "released_to"
     t.date "released_date"
     t.text "custom_tag"
+    t.string "branch", default: ["master"], array: true
+    t.string "id_from_branch", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

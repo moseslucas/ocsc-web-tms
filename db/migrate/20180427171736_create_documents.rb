@@ -21,6 +21,9 @@ class CreateDocuments < ActiveRecord::Migration[5.1]
       t.date     :released_date
       t.text     :custom_tag, limit: 65535
 
+      t.string :branch, array:true, default: ["master"]
+      t.string :id_from_branch, array:true, default:[]
+
       t.timestamps
     end
   end
