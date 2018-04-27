@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180427151824) do
+ActiveRecord::Schema.define(version: 20180427153557) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,17 @@ ActiveRecord::Schema.define(version: 20180427151824) do
     t.string "id_from_branch", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "kinds", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "status", limit: 2, default: 1
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.decimal "charge", precision: 9, scale: 2, null: false
+    t.decimal "puc", precision: 9, scale: 2, null: false
+    t.string "branch", default: ["master"], array: true
+    t.string "id_from_branch", default: [], array: true
   end
 
 end
