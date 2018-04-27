@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :clients
   mount ActionCable.server, at: '/cable'
 
   resources :discounts
