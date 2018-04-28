@@ -23,8 +23,8 @@ class Document < ApplicationRecord
   has_many :vehicles, through: :document_vehicles
 
   #employees
-  # has_many :document_employees
-  # has_many :employees, through: :document_employees
+  has_many :document_employees
+  has_many :employees, through: :document_employees
 
   #SCOPES
   scope :cargo, -> { where(doc_type: "rec") }

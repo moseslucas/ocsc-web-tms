@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180428143111) do
+ActiveRecord::Schema.define(version: 20180428144019) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,17 @@ ActiveRecord::Schema.define(version: 20180428143111) do
     t.text "description"
     t.string "discount_type"
     t.decimal "amount", precision: 9, scale: 2
+    t.integer "status", limit: 2, default: 1
+    t.string "branch", default: ["master"], array: true
+    t.string "id_from_branch", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "document_employees", id: :string, limit: 30, force: :cascade do |t|
+    t.string "document_id", limit: 30, null: false
+    t.string "employee_id", limit: 30, null: false
+    t.string "description"
     t.integer "status", limit: 2, default: 1
     t.string "branch", default: ["master"], array: true
     t.string "id_from_branch", default: [], array: true
