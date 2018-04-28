@@ -10,16 +10,24 @@ class Api::V1::SyncsController < ApplicationController
   end
 
   def create
-    @params[:sync_in].each do |s|
-      s[:records].each do |record|
+    # byebug
+    @params = @params.to_h
+    for i in 0...@params[:sync_in].count
+      sync_in = @params[:sync_in]["#{i}"]
+      model = sync_in[:model_name].constantize
+
+      for j in 0...sync_in[:records].count
+        record = sync_in[:records]["#{j}"]
         if new_record?(record)
-          model_param = {}
-          record.keys.each do |key|
-            model_param[key] = record["#{key}"]
+          unless model.find_by(id: record[:id])
+            model_param = {}
+            record.keys.each do |key|
+              model_param[key] = record["#{key}"]
+            end
+            model_param[:branch] = [@params[:branch]] unless !@params[:branch]
+            model_param[:id_from_branch] = [record[:id]]
+            model.create model_param
           end
-          model_param[:branch] = [@params[:branch]] unless !@params[:branch]
-          model_param[:id_from_branch] = [record[:id]]
-          s[:model_name].constantize.create model_param
         else
         end
       end
@@ -29,7 +37,7 @@ class Api::V1::SyncsController < ApplicationController
 
   private
   def set_params
-    @params = params[:sync]
+    @params = params.require(:sync).permit!
   end
 
   def new_record?(record)
