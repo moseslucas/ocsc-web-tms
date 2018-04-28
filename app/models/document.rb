@@ -19,8 +19,8 @@ class Document < ApplicationRecord
   # has_many :document_tags, through: :document_details
   #
   #vehicles
-  # has_many :document_vehicles
-  # has_many :vehicles, through: :document_vehicles
+  has_many :document_vehicles
+  has_many :vehicles, through: :document_vehicles
 
   #employees
   # has_many :document_employees
