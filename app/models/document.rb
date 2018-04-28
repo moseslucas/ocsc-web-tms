@@ -9,7 +9,7 @@ class Document < ApplicationRecord
   belongs_to :destination, :class_name=>'Location'
 
 
-  # has_many :payments
+  has_many :payments
 
   #Associations
 

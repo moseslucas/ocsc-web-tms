@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180427171736) do
+ActiveRecord::Schema.define(version: 20180428140131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -131,6 +131,23 @@ ActiveRecord::Schema.define(version: 20180427171736) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_locations_on_name", unique: true
+  end
+
+  create_table "payments", id: :string, limit: 100, force: :cascade do |t|
+    t.string "document_id", limit: 30, null: false
+    t.string "ref_id", limit: 50
+    t.date "trans_date", null: false
+    t.string "description"
+    t.decimal "amount", precision: 9, scale: 2, null: false
+    t.string "payment_type", limit: 50, default: "cash"
+    t.string "employee_id", limit: 30
+    t.integer "status", limit: 2, default: 1
+    t.date "deposit_date"
+    t.string "branch", default: ["master"], array: true
+    t.string "id_from_branch", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id"], name: "index_id_on_payments", unique: true
   end
 
   create_table "uoms", id: :string, limit: 100, force: :cascade do |t|
