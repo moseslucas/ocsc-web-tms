@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180428144514) do
+ActiveRecord::Schema.define(version: 20180428145128) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,6 +97,16 @@ ActiveRecord::Schema.define(version: 20180428144514) do
     t.string "id_from_branch", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "document_tags", id: :string, limit: 100, force: :cascade do |t|
+    t.string "description", null: false
+    t.string "document_detail_id", limit: 30, null: false
+    t.string "branch", default: ["master"], array: true
+    t.string "id_from_branch", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id"], name: "index_documnet_tags_on_id", unique: true
   end
 
   create_table "document_vehicles", id: :string, limit: 30, force: :cascade do |t|
