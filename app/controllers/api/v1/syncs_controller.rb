@@ -26,13 +26,15 @@ class Api::V1::SyncsController < ApplicationController
             end
             model_param[:branch] = [@params[:branch]] unless !@params[:branch]
             model_param[:id_from_branch] = [record[:id]]
-            model.create model_param
+            unless model.create(model_param)
+              render json: {model: sync_in[:model_name], status: "ERROR"}
+            end
           end
         else
         end
       end
     end
-    render json: {status: "OK"}
+    render json: {model: "all", status: "OK"}
   end
 
   private
