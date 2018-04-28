@@ -14,9 +14,9 @@ class Document < ApplicationRecord
   #Associations
 
   #document details
-  # has_many :document_shippings, :class_name=>'DocumentDetail', :foreign_key=>'document_shipping_id'
-  # has_many :document_details
-  # has_many :document_tags, through: :document_details
+  has_many :document_shippings, :class_name=>'DocumentDetail', :foreign_key=>'document_shipping_id'
+  has_many :document_details
+  has_many :document_tags, through: :document_details
   #
   #vehicles
   has_many :document_vehicles

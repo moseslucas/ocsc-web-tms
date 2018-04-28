@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180428144019) do
+ActiveRecord::Schema.define(version: 20180428144514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,23 @@ ActiveRecord::Schema.define(version: 20180428144019) do
     t.string "discount_type"
     t.decimal "amount", precision: 9, scale: 2
     t.integer "status", limit: 2, default: 1
+    t.string "branch", default: ["master"], array: true
+    t.string "id_from_branch", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "document_details", id: :string, limit: 100, force: :cascade do |t|
+    t.string "document_shipping_id", limit: 30
+    t.string "document_id", limit: 30, null: false
+    t.string "description"
+    t.integer "qty"
+    t.decimal "price", precision: 9, scale: 2
+    t.integer "status", limit: 2, default: 1, null: false
+    t.decimal "declared_value", precision: 9, scale: 2
+    t.decimal "weight", precision: 10
+    t.integer "tags"
+    t.string "uom"
     t.string "branch", default: ["master"], array: true
     t.string "id_from_branch", default: [], array: true
     t.datetime "created_at", null: false
