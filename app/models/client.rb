@@ -1,6 +1,6 @@
 class Client < ApplicationRecord
-  # validates :name, :amount, :discount_type, presence: true
-  # validates :amount, numericality: {only_integer: true, less_than: 101, greater_than: -1}
+  validates :name, presence: true
+  validates :credit_limit, numericality: {only_integer: true, less_than: 1000000, greater_than: -1}
   scope :search, -> (filter) { 
     where(
       "(name ILIKE ?) OR

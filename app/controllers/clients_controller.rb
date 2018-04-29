@@ -26,8 +26,6 @@ class ClientsController < ApplicationController
   end
 
   def new
-    # testing
-    ActionCable.server.broadcast "web_notifications_channel", {status: "OK"}
     @client = Client.new
   end
 
@@ -50,11 +48,14 @@ class ClientsController < ApplicationController
   private
 
   def set_params
-    @params = params[:client].permit(
+    @params = params.require(:client).permit(
       :name,
       :description,
-      :amount,
-      :client_type
+      :contact,
+      :email,
+      :address,
+      :credit_limit,
+      :discount_id
     )
   end
 
