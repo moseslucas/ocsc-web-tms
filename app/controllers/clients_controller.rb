@@ -5,7 +5,7 @@ class ClientsController < ApplicationController
   before_action :find_record, only: [:edit, :update, :destroy]
 
   def index
-    client_scope = Client.active
+    client_scope = Client.active.from_branch("master")
     client_scope = client_scope.search(params[:filter]) if params[:filter]
     @client = smart_listing_create(
       :clients,
@@ -17,7 +17,7 @@ class ClientsController < ApplicationController
 
   def create
     @client = Client.new @params
-    @client.id = generate_id("MSTR",Client)
+    @client.id = generate_id("MSTR-CLNT",Client)
 		if @client.save 
 			redirect_to clients_path, notice: "Client was successfully created"
 		else
