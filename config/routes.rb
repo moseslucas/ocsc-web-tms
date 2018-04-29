@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :documents
+  resources :employees
+  resources :vehicles
+  resources :locations
+  resources :uoms
+  resources :calculations
+  resources :kinds
+  resources :clients
   mount ActionCable.server, at: '/cable'
 
   resources :discounts

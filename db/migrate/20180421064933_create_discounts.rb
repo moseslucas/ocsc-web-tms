@@ -1,6 +1,7 @@
 class CreateDiscounts < ActiveRecord::Migration[5.1]
   def change
-    create_table :discounts do |t|
+    create_table :discounts, {id: false} do |t|
+      t.column :id, "varchar(100) PRIMARY KEY"
       t.string :name, null:false, unique:true
       t.text :description
       t.string :discount_type
