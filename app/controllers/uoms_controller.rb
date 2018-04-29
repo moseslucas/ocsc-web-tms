@@ -1,2 +1,0 @@
-class UomsController < ApplicationController
-end
