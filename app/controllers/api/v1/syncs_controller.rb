@@ -19,25 +19,23 @@ class Api::V1::SyncsController < ApplicationController
 
       for j in 0...sync_in[:records].count
         record = sync_in[:records]["#{j}"]
-        if new_record?(record)
-          unless model.find_by(id: record[:id])
-            model_param = {}
-            record.keys.each do |key|
-              model_param[key] = record["#{key}"]
-            end
-            model_param[:branch] = [@params[:branch]] unless !@params[:branch]
-            model_param[:id_from_branch] = [record[:id]]
-            unless model.create(model_param)
-              render json: {model: sync_in[:model_name], status: "ERROR"}
-            end
-          end
-        else
+        if model.find_by id: record[:id]
           existing_record = model.find_by id: record[:id]
-          if existing_record
+          if existing_record.updated_at < record[:updated_at].to_datetime
             existing_record.update record
             unless existing_record.save
               render json: {model: sync_in[:model_name], status: "ERROR"}
             end
+          end
+        else
+          model_param = {}
+          record.keys.each do |key|
+            model_param[key] = record["#{key}"]
+          end
+          model_param[:branch] = [@params[:branch]] unless !@params[:branch]
+          model_param[:id_from_branch] = [record[:id]]
+          unless model.create(model_param)
+            render json: {model: sync_in[:model_name], status: "ERROR"}
           end
         end
       end
