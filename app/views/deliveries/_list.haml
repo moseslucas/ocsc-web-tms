@@ -23,7 +23,7 @@
           %td
             %button.btn.dark.btn-outline
               %i.fa.fa-external-link
-                View
+                = link_to "View", delivery_path(t)
   = smart_listing.paginate
   = smart_listing.pagination_per_page_links
 - else

@@ -17,4 +17,11 @@ class DeliveriesController < ApplicationController
       default_sort: {updated_at: "desc"}
     )
   end
+
+  def show
+    @doc = Document.find_by id: params[:id]
+  end
+
+  private
+
 end

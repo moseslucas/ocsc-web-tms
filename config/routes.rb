@@ -26,6 +26,6 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   post '/switch', to: 'sessions#switch'
 
-  get '/deliveries', to: 'deliveries#index'
+  resources :deliveries
 
 end
