@@ -21,7 +21,9 @@
           %td= t.source.name
           %td= t.destination.name
           %td
-            %button.btn.btn-sm.green View
+            %button.btn.dark.btn-outline
+              %i.fa.fa-external-link
+                View
   = smart_listing.paginate
   = smart_listing.pagination_per_page_links
 - else

@@ -14,4 +14,5 @@
   = smart_listing.paginate
   = smart_listing.pagination_per_page_links
 - else
-  %p.warning No records!
+  %h1.text-center No Records Found
+  %h1.text-center= image_tag "search2.gif", class: "no-records-found"
