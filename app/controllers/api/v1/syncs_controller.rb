@@ -1,4 +1,5 @@
 class Api::V1::SyncsController < ApplicationController
+  skip_before_action :authenticate_user
   before_action :set_params, only: [:create]
 
   def index

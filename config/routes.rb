@@ -11,7 +11,6 @@ Rails.application.routes.draw do
 
   resources :discounts
   resources :clients
-  # resources :documents
   # resources :employees
   # resources :vehicles
   # resources :locations
@@ -26,5 +25,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   post '/switch', to: 'sessions#switch'
+
+  get '/deliveries', to: 'deliveries#index'
 
 end
