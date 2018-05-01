@@ -86,21 +86,21 @@
               %td
                 = number_with_delimiter sprintf '%.2f', c.document_shipping.total_amount, delimiter:','
             - i+=1
-  .row
-    .col-xs-8.invoice-block
-      .btn-group
-        %button.btn.btn-lg.blue.hidden-print.dropdown-toggle{"data-toggle" => "dropdown"}
-          Print Manifest
-          %i.fa.fa-angle-down
-        %ul.dropdown-menu.bottom-up
-          %li#btn_print_manifest
-            %a{:href => "javascript:;"}
-              %i.fa.fa-print
-              Original Copy
-          %li#btn_print_manifest_driver
-            %a{:href => "javascript:;"}
-              %i.fa.fa-print
-              Driver's Copy
+  -# .row
+  -#   .col-xs-8.invoice-block
+  -#     .btn-group
+  -#       %button.btn.btn-lg.blue.hidden-print.dropdown-toggle{"data-toggle" => "dropdown"}
+  -#         Print Manifest
+  -#         %i.fa.fa-angle-down
+  -#       %ul.dropdown-menu.bottom-up
+  -#         %li#btn_print_manifest
+  -#           %a{:href => "javascript:;"}
+  -#             %i.fa.fa-print
+  -#             Original Copy
+  -#         %li#btn_print_manifest_driver
+  -#           %a{:href => "javascript:;"}
+  -#             %i.fa.fa-print
+  -#             Driver's Copy
 - else
   .row
     .center

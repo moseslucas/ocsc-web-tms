@@ -21,9 +21,7 @@
           %td= t.source.name
           %td= t.destination.name
           %td
-            %button.btn.dark.btn-outline
-              %i.fa.fa-external-link
-                = link_to "View", delivery_path(t)
+            = button_to "View", delivery_path(t), method: "get", class: "btn dark btn-outline"
   = smart_listing.paginate
   = smart_listing.pagination_per_page_links
 - else
