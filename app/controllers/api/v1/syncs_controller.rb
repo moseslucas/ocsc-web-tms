@@ -32,6 +32,13 @@ class Api::V1::SyncsController < ApplicationController
             end
           end
         else
+          existing_record = model.find_by id: record[:id]
+          if existing_record
+            existing_record.update record
+            unless existing_record.save
+              render json: {model: sync_in[:model_name], status: "ERROR"}
+            end
+          end
         end
       end
     end
