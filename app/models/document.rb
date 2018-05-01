@@ -34,16 +34,10 @@ class Document < ApplicationRecord
 
   scope :search, -> (filter) { 
     where(
-      "(ref_id LIKE ?) OR 
-      (documents.id LIKE ?) OR
-      (trans_date LIKE ?) OR 
-      (custom_tag LIKE ?) OR
-      (total_amount LIKE ?) OR 
-      (released_to LIKE ?) OR 
-      (released_date LIKE ?)", 
-      "%#{filter.strip}%",
-      "%#{filter.strip}%",
-      "%#{filter.strip}%",
+      "(ref_id ILIKE ?) OR 
+      (id ILIKE ?) OR
+      (custom_tag ILIKE ?) OR
+      (released_to ILIKE ?)",
       "%#{filter.strip}%",
       "%#{filter.strip}%",
       "%#{filter.strip}%",
