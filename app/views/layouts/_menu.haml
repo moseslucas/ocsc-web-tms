@@ -1,12 +1,4 @@
-%li.menu-dropdown.classic-menu-dropdown{"aria-haspopup" => "true"}
-  %a
-    %i.fa.fa-refresh
-    SWITCH
-  %ul.dropdown-menu.pull-left
-    - if session[:switch] === "master"
-      %li=link_to "Mirasol"
-      %li=link_to "Pasay"
-      %li=link_to "San Andres"
-    - else
-      %li=link_to "Back to Master"
-
+- menu_list = ["master","mirasol", "pasay", "san andres"]
+- menu_list.each do |menu| 
+  %li.menu-dropdown.classisc-menu-dropdown{class: session[:branch] === menu ? "active" : ""}
+    = link_to menu.titleize, switch_path(branch: menu), method: "POST"

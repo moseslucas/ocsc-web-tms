@@ -7,9 +7,7 @@
             .page-logo
               = image_tag "logo-default-ocsc.png"
             .top-menu
-              %ul.nav.navbar.pull-right
-                %li.dropdown
-                  =link_to "Logout", logout_path, method: 'DELETE'
+              =link_to "Logout", logout_path, method: 'DELETE'
         .page-header-menu
           .container
             .hor-menu

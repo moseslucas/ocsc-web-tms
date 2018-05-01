@@ -24,6 +24,10 @@ class SessionsController < ApplicationController
     redirect_to login_path
   end
 
+  def switch
+    session[:branch] = params[:branch]
+    redirect_back fallback_location: root_path
+  end
 
 
 end
