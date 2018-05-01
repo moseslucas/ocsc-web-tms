@@ -1,3 +1,20 @@
 - provide :title, "Dashboard"
 
-%p A black page template with a minimal dependency assets to use as a base for any custom page you create
+- if session[:branch] === "master"
+  .row
+    .col-md-3
+      =link_to "Clients", clients_path
+    .col-md-3
+      =link_to "Discounts", discounts_path
+    .col-md-3
+      =link_to "Collections"
+    .col-md-3
+      =link_to "State of Accounts"
+- else
+  .row
+    .col-md-4
+      =link_to "Daily Transactions"
+    .col-md-4
+      =link_to "Cargo Transactions"
+    .col-md-4
+      =link_to "Deliveries"
