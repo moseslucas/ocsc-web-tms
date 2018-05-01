@@ -6,7 +6,10 @@
           .container
             .page-logo
               = image_tag "logo-default-ocsc.png"
-            %a.menu-toggler{:href => "javascript:;"}
+            .top-menu
+              %ul.nav.navbar.pull-right
+                %li.dropdown
+                  =link_to "Logout", logout_path, method: 'DELETE'
         .page-header-menu
           .container
             .hor-menu
