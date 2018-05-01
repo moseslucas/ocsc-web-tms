@@ -14,7 +14,7 @@ class DeliveriesController < ApplicationController
       :deliveries,
       deliveries_scope,
       partial: "deliveries/list",
-      default_sort: {updated_at: "desc"}
+      default_sort: {trans_date: "desc"}
     )
   end
 

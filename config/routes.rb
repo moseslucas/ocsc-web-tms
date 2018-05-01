@@ -27,5 +27,6 @@ Rails.application.routes.draw do
   post '/switch', to: 'sessions#switch'
 
   resources :deliveries
+  resources :cargos
 
 end

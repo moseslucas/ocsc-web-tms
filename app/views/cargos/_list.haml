@@ -1,0 +1,14 @@
+- unless smart_listing.empty?
+  %table.table.table-striped.table-hover.dt-responsive
+    %thead
+      %tr
+        %th= smart_listing.sortable "ID", :id
+    %tbody
+      - smart_listing.collection.each do |t|
+        %tr
+          %td= t.id
+  = smart_listing.paginate
+  = smart_listing.pagination_per_page_links
+- else
+  %h1.text-center No Records Found
+  %h1.text-center= image_tag "search2.gif", class: "no-records-found"
