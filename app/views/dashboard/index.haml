@@ -1,3 +1,11 @@
 - provide :title, "Dashboard"
 
-%p A black page template with a minimal dependency assets to use as a base for any custom page you create
+.row
+  .col-md-3
+    =link_to "Clients", clients_path
+  .col-md-3
+    =link_to "Discounts", discounts_path
+  .col-md-3
+    =link_to "Collections"
+  .col-md-3
+    =link_to "State of Accounts"
