@@ -1,10 +1,10 @@
 module DeliveriesHelper
   def status_meaning(status)
-    if status == 0
+    if status == 1
       "For Delivery"
-    elsif status == 1
-      "In Transit"
     elsif status == 2
+      "In Transit"
+    elsif status == 3
       "Released"
     else
       "Uknown"
