@@ -17,5 +17,6 @@ class ApplicationRecord < ActiveRecord::Base
   scope :has_parcel_calculation, -> {where(calculations: {calculation_type: "parcel"})}
 
   scope :from_branch, -> (branch) { where("'#{branch}' = ANY (branch)") }
+  scope :from_exact_branch, -> (branch) { where(branch: ["#{branch}"]) }
   scope :from_exact_branches, -> (branches) { where branch: branches }
 end

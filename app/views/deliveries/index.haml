@@ -8,8 +8,6 @@
   .row
     .col-xs-12
       .portlet.light.portlet-fit
-        -# .portlet-title
-          = #link_to "CREATE NEW", new_document_path, class: "btn green"
         .portlet-body
           = smart_listing_controls_for(:deliveries, {class: "form-inline text-right"}) do
             .checkbox
