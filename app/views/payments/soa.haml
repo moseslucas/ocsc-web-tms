@@ -16,7 +16,7 @@
       #div_f_client.input-group.input-group-lg
         %select#f_client.form-control
           %option{value: ''} Search Client
-          - @clients.each do |client|
+          - @clients.order(:name).each do |client|
             %option{value: client.id}= client.name
         %span.input-group-btn
           %button#btn_generate.btn.green{:required => "", :type => "submit"} Generate SOA
