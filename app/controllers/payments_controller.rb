@@ -6,6 +6,9 @@ class PaymentsController < ApplicationController
   def daily_report
   end
 
+  def soa
+  end
+
   def cargo_collect_report
     @date = params[:date]
     @report = @initial_report
