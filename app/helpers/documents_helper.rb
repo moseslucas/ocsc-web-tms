@@ -24,4 +24,17 @@ module DocumentsHelper
       "UNKNOWN"
     end
   end
+
+  def remove_cwb_waybill_batch_prefix(ref_id)
+    return ref_id[4..8]
+  end
+
+  def format_document_tags(tags)
+    if tags.count > 1
+      return "#{tags.first} - #{tags.last}"
+    else
+      return tags.join(" ")
+    end
+  end
+
 end
