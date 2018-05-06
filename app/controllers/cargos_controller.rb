@@ -1,4 +1,5 @@
 class CargosController < ApplicationController
+  include DocumentsHelper
   include SmartListing::Helper::ControllerExtensions
   helper SmartListing::Helper
 
@@ -11,7 +12,7 @@ class CargosController < ApplicationController
     .cargo.has_cargo_calculation
     .not_cancelled
     .from_exact_branch(session[:branch])
-    cargos_scope = cargos_scope.search(params[:filter]) if params[:filter]
+    cargos_scope = cargos_scope.cargo_search(params[:filter]) if params[:filter]
     @cargos = smart_listing_create(
       :cargos,
       cargos_scope,

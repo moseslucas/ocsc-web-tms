@@ -32,12 +32,29 @@ class Document < ApplicationRecord
   # scope :active, -> { where.not(status1: 0) }
   scope :in_year, -> (year) { where("YEAR(documents.trans_date) = #{year}") }
 
-  scope :search, -> (filter) { 
+  scope :cargo_search, -> (filter) { 
     where(
-      "(ref_id ILIKE ?) OR 
-      (id ILIKE ?) OR
-      (custom_tag ILIKE ?) OR
-      (released_to ILIKE ?)",
+      "(documents.ref_id ILIKE ?) OR 
+      ((documents.client_id = clients.id) AND (clients.name ILIKE ?)) OR
+      ((documents.destination_id = locations.id) AND (locations.name ILIKE ?)) OR
+      (documents.id ILIKE ?) OR
+      (documents.custom_tag ILIKE ?) OR
+      (documents.released_to ILIKE ?)",
+      "%#{filter.strip}%",
+      "%#{filter.strip}%",
+      "%#{filter.strip}%",
+      "%#{filter.strip}%",
+      "%#{filter.strip}%",
+      "%#{filter.strip}%"
+    )
+  }
+
+  scope :delivery_search, -> (filter) { 
+    where(
+      "(documents.ref_id ILIKE ?) OR 
+      (documents.id ILIKE ?) OR
+      (documents.custom_tag ILIKE ?) OR
+      (documents.released_to ILIKE ?)",
       "%#{filter.strip}%",
       "%#{filter.strip}%",
       "%#{filter.strip}%",

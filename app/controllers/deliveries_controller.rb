@@ -3,13 +3,13 @@ class DeliveriesController < ApplicationController
   helper SmartListing::Helper
 
   def index 
-    deliveries_scope = Document.from_branch(session[:branch]).includes(
+    deliveries_scope = Document.from_exact_branch(session[:branch]).includes(
       :source,
       :destination,
       :vehicles,
       :employees
     ).delivery.not_cancelled
-    deliveries_scope = deliveries_scope.search(params[:filter]) if params[:filter]
+    deliveries_scope = deliveries_scope.delivery_search(params[:filter]) if params[:filter]
     @deliveries = smart_listing_create(
       :deliveries,
       deliveries_scope,
