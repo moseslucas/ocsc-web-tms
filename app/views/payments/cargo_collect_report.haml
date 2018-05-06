@@ -29,7 +29,7 @@
         %h4 Amount
     / Start Writing Data. Loop Here
     - total=0
-    - @result.each do |c|
+    - @report.each do |c|
       %tr.tablebody
         %td
           %h4= "#{@prefix}#{remove_cwb_waybill_batch_prefix(c.ref_id)}"
