@@ -7,6 +7,7 @@ class PaymentsController < ApplicationController
   end
 
   def soa
+    @clients = Client.active
   end
 
   def cargo_collect_report
