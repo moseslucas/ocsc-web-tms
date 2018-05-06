@@ -15,8 +15,9 @@
       %label Select Client
       #div_f_client.input-group.input-group-lg
         %select#f_client.form-control
+          %option{value: ''} Search Client
           - @clients.each do |client|
-            %option{id: client.id}= client.name
+            %option{value: client.id}= client.name
         %span.input-group-btn
           %button#btn_generate.btn.green{:required => "", :type => "submit"} Generate SOA
 
@@ -63,7 +64,7 @@
     at_load : function(){
     },
     at_init : function() {
-      //misc.init_select2('#f_client','Select Client')
+      $('#f_client').select2({ theme: 'bootstrap' })
     },
     at_dom : function() {
       this.settings.btn_generate.click(()=>{ this.generate() })

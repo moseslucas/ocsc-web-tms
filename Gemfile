@@ -22,6 +22,7 @@ gem "smart_listing"
 gem 'jquery-rails'
 gem 'redis', '~> 3.0'
 gem 'bcrypt', '~> 3.1.7'
+gem "select2-rails"
 
 group :development, :test do
   gem 'faker'
