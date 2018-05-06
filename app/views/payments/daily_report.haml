@@ -1,0 +1,12 @@
+- provide :title, "Daily Report"
+
+.page-content-inner
+  .row
+    .col-sm-2
+    .col-sm-6
+      .form-group
+        #div_f_date.input-group.input-group-lg
+          %input#f_date.form-control{:type => "date", :value => "#{DateTime.now.strftime '%Y-%m-%d'}"}/
+          %span.input-group-btn
+            %button#generate_cargo_collect.btn.purple-intense{:required => ""} Cargo Collect
+            %button#generate_cargo_transaction.btn.green-sharp{:required => ""} Cargo Transaction

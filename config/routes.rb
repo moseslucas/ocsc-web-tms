@@ -29,4 +29,8 @@ Rails.application.routes.draw do
   resources :deliveries
   resources :cargos
 
+  get 'daily_report', to: 'payments#daily_report'
+  get 'cargo_transaction', to: 'payments#cargo_transaction_report'
+  get 'cargo_collect', to: 'payments#cargo_collect_report'
+
 end
